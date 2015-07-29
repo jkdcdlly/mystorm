@@ -12,6 +12,7 @@ public class DBFactory {
 	private static final String DATABASE = "jeesite";
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "hello";
+	
 
 	public static Connection getConnection() {
 		String url = "jdbc:mysql://" + HOST_PORT + "/" + DATABASE;
