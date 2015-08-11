@@ -10,10 +10,10 @@ import org.slf4j.LoggerFactory;
 
 import com.liantuo.tourism.po.OdsNginxTeamdbsPo;
 
-public class OdsNginxTourismDBProcessor2 implements DBProcessor {
-	private final Logger logger = LoggerFactory.getLogger(OdsNginxTourismDBProcessor2.class);
+public class OdsNginxTourismDBProcessor implements DBProcessor {
+	private final Logger logger = LoggerFactory.getLogger(OdsNginxTourismDBProcessor.class);
 	private final String TABLE_FIELDS = "app_name,server_IP,req_time,http_status,req_url_path,counts,resp_time,size,req_date,req_url_type";
-	private final String TABLE_NAME = "ods_nginx_tourism2";
+	private final String TABLE_NAME = "ods_nginx_tourism";
 
 	public void insert(List<OdsNginxTeamdbsPo> pos, Connection conn, PreparedStatement ps) throws SQLException {
 		if (pos.size() == 0)

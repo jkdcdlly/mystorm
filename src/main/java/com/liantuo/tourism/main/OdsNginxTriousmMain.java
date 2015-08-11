@@ -14,7 +14,7 @@ import com.liantuo.tourism.filter.TeamdbsFilter;
 import com.liantuo.tourism.function.ExtractFields;
 import com.liantuo.tourism.state.OdsNginxTourismDBStateFactory;
 import com.liantuo.tourism.state.OdsNginxTourismDBUpdater;
-import com.liantuo.tourism.utils.TeamdbsUtils;
+import com.liantuo.tourism.utils.KafkaConfig;
 
 /**
  * 统计customer应用的 总访问量
@@ -73,7 +73,7 @@ public class OdsNginxTriousmMain {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Config conf = TeamdbsUtils.getKafkaConfig("OdsNginxTeamdbsMain1");
+		Config conf = KafkaConfig.getKafkaConfig("OdsNginxTeamdbsMain1");
 		if (args != null && args.length > 0) {
 			try {
 				StormSubmitter.submitTopology(args[0], conf, buildTopology());
@@ -82,7 +82,7 @@ public class OdsNginxTriousmMain {
 			}
 		} else {
 			LocalCluster cluster = new LocalCluster();
-			cluster.submitTopology("b2b-count", conf, buildTopology());
+			cluster.submitTopology("OdsNginxTeamdbsMain1", conf, buildTopology());
 			Thread.sleep(60 * 1000);
 			cluster.shutdown();
 		}

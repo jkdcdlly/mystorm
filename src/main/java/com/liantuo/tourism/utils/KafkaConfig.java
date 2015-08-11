@@ -6,8 +6,14 @@ import com.liantuo.tourism.config.Global;
 
 import backtype.storm.Config;
 
-public class TeamdbsUtils {
-
+public class KafkaConfig {
+	/**
+	 * kafka 配置
+	 * 
+	 * @param groupId
+	 * @return
+	 * @throws Exception
+	 */
 	public static Config getKafkaConfig(String groupId) throws Exception {
 		if (StringUtils.isBlank(groupId)) {
 			throw new Exception("groupId is required");
