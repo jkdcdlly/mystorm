@@ -30,6 +30,9 @@ public class OdsNginxTeamdbsVo {
 	private boolean isNew;
 	private String reqUrlType;
 
+	public OdsNginxTeamdbsVo() {
+	}
+
 	public OdsNginxTeamdbsVo(String[] arrs) {
 		appName = arrs[0];
 		clientIP = arrs[1];
@@ -167,7 +170,7 @@ public class OdsNginxTeamdbsVo {
 
 	public boolean isNew() {
 		return isNew;
-	} 
+	}
 
 	public void setNew(boolean isNew) {
 		this.isNew = isNew;
@@ -203,12 +206,18 @@ public class OdsNginxTeamdbsVo {
 	}
 
 	public String getType(String reqUrlPath) {
-		Integer i = reqUrlPath.lastIndexOf(".");
-		if (i.equals(-1)) {
+		if (-1 != reqUrlPath.indexOf(";jsessionid")) {
+			reqUrlPath = reqUrlPath.substring(0, reqUrlPath.indexOf(";jsessionid"));
+		}
+		if (-1 == reqUrlPath.lastIndexOf(".")) {
 			return "/";
 		} else {
-			return reqUrlPath.substring(i + 1);
+			return reqUrlPath.substring(reqUrlPath.lastIndexOf(".") + 1);
 		}
 	}
 
+	public static void main(String[] args) {
+		OdsNginxTeamdbsVo o = new OdsNginxTeamdbsVo();
+		System.out.println(o.getType("/index.htm;jsessionid=F473090FE903D6E906063BD2ACE3924D"));
+	}
 }
