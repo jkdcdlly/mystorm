@@ -21,7 +21,7 @@ import com.liantuo.tourism.utils.TeamdbsUtils;
  *
  * @author Administrator
  */
-public class OdsNginxTeamdbsMain {
+public class OdsNginxTriousmMain {
 	/**
 	 * topic名称
 	 */
