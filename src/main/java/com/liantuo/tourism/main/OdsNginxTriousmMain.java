@@ -73,7 +73,7 @@ public class OdsNginxTriousmMain {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Config conf = KafkaConfig.getKafkaConfig("OdsNginxTeamdbsMain1");
+		Config conf = KafkaConfig.getKafkaConfig("OdsNginxTriousmMain");
 		if (args != null && args.length > 0) {
 			try {
 				StormSubmitter.submitTopology(args[0], conf, buildTopology());
@@ -82,7 +82,7 @@ public class OdsNginxTriousmMain {
 			}
 		} else {
 			LocalCluster cluster = new LocalCluster();
-			cluster.submitTopology("OdsNginxTeamdbsMain1", conf, buildTopology());
+			cluster.submitTopology("OdsNginxTriousmMain", conf, buildTopology());
 			Thread.sleep(60 * 1000);
 			cluster.shutdown();
 		}
